@@ -12,7 +12,12 @@ package sort;
 class InsersionSortMain {
     
     public static void main(String[] agrs) {
+        Integer[] arr = {10, 2, 6, 4, 3, 7, 5};
+        InsersionSort1 sort1 = new InsersionSort1();
+        sort1.insersionSort(arr);
         
+        InsersionSort2 sort2 = new InsersionSort2();
+        sort2.insersionSort();
     }
 }
 
@@ -32,7 +37,7 @@ Time Complexity
 - average time: n^2
 - worst time: n^2
 */
-class insersionSort1 {
+class InsersionSort1 {
     int firstUnsorted, shifter;
     Comparable itemToInsert;
     
@@ -51,7 +56,7 @@ class insersionSort1 {
     }   
 }
 
-class insersionSort2 {
+class InsersionSort2 {
     int[] arr = {10, 2, 6, 4, 3, 7, 5};
     public void insersionSort() {
         for(int i = 1; i < arr.length; i++) {
