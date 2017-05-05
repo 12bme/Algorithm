@@ -9,7 +9,7 @@ package sort;
  *
  * @author jiseonoh
  */
-class InsersionSortMain {
+class InsersionSort {
     
     public static void main(String[] agrs) {
         Integer[] arr = {10, 2, 6, 4, 3, 7, 5};
@@ -56,6 +56,13 @@ class InsersionSort1 {
     }   
 }
 
+/* 
+삽입정렬
+- 전체 리스트를 순차적으로 돌면서 sorting된 리스트에서 실제 자신의 위치를 찾아감 (sorted 부분/unsorted 부분)
+
+최악의 경우(역으로 정렬되어 있을 경우)엔 n-1개, n-2개, ..., 1개씩 비교를 반복하여 시간복잡도는 O(n^2)이고,
+이미 정렬되어 있는 경우에는 한번씩 밖에 비교를 하지 않아 시간복잡도는 O(n)입니다.
+*/
 class InsersionSort2 {
     int[] arr = {10, 2, 6, 4, 3, 7, 5};
     public void insersionSort() {
@@ -74,6 +81,27 @@ class InsersionSort2 {
     public void printArr(int[] array) {
         for(int i = 0; i < array.length; i++) {
             System.out.print(array[i] + "");
+        }
+    }
+}
+
+// 공간복잡도는 O(n)으로
+class InsersionSort3 {
+    public void insersionSort(Comparable[] array) {
+        // 1. 필요한 변수
+        int size = array.length;
+        int firstUnsorted, sortedLoop;
+        Comparable targetItem = null;
+        
+        // 2. sorted, unsorted
+        for(firstUnsorted = 1; firstUnsorted < size; firstUnsorted++) {
+            targetItem = array[firstUnsorted]; // 기준
+            for(sortedLoop = firstUnsorted; sortedLoop >= 0; sortedLoop--) {
+                // 오름차순 정렬
+                if(targetItem.compareTo(array[sortedLoop]) >= 0) break;
+                array[sortedLoop] = array[sortedLoop - 1];
+            }
+            array[sortedLoop] = targetItem;
         }
     }
 }
