@@ -6,7 +6,6 @@
 package algorithm;
 
 /**
- *
  * @author jiseonoh
  */
 class ReverseString {
