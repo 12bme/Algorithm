@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sort;
+package algorithm.sort;
 
 /**
  *
@@ -86,8 +86,22 @@ class SelectionSort2 {
 
 // 공간복잡도는 O(n)으로
 class SelectionSort3 {
-    public void selectionSort(int[] array) {
+    public void selectionSort(Comparable[] array) {
+        // 1. 필요한 변수
+        int size = array.length;
+        int curMin;
+        Comparable temp;
         
+        // 2. 실제 정렬
+        for(int outerIdx = 0; outerIdx < size; outerIdx++) {
+            curMin = outerIdx;
+            for(int innerIdx = outerIdx+1; innerIdx < size; innerIdx++) {
+                if(array[curMin].compareTo(array[innerIdx]) > 0) curMin = innerIdx;
+            }
+            temp = array[outerIdx];
+            array[outerIdx] = array[curMin];
+            array[curMin] = temp;
+        }
     }
 }
 

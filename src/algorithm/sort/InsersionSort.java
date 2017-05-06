@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sort;
+package algorithm.sort;
 
 /**
  *
@@ -91,7 +91,7 @@ class InsersionSort3 {
         // 1. 필요한 변수
         int size = array.length;
         int firstUnsorted, sortedLoop;
-        Comparable targetItem = null;
+        Comparable targetItem;
         
         // 2. sorted, unsorted
         for(firstUnsorted = 1; firstUnsorted < size; firstUnsorted++) {
