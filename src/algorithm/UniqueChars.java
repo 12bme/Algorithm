@@ -18,9 +18,15 @@ public class UniqueChars {
         executeAlgorithm(input);
     }
     public static boolean executeAlgorithm(String input) {
-        if(input.length() > 256)
+        if(input.length() > 128)
             return false;
-        // hash table 생성해서 올린다.
+        
+        boolean[] charSet = new boolean[256];
+        for(int i = 1; i<input.length(); i++) {
+            int value = input.charAt(i);
+            if(charSet[value]) return false;
+            charSet[value] = true;
+        }
         return true;
     }
 }
