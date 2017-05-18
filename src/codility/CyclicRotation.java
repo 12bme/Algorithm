@@ -5,6 +5,7 @@ package codility;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.*;
 
 /**
  *
@@ -13,21 +14,35 @@ package codility;
 public class CyclicRotation {
     public static void main(String[] args) {
         int[] inputArray = {3, 8, 9, 7, 6};
-        solution(inputArray, 3);
+        Solution mySolution = new Solution();
+        mySolution.solution(inputArray, 3);
     }
-    public static int[] solution(int[] A, int K) {
-        int[] resultArray = new int[A.length];
-        int index = 0;
-        K = K%(A.length);
-        System.out.println("K:" + K);
-        for(int i = K; i < A.length; i++) {
-            System.out.println(index + ", " + i);
-            resultArray[index++] = A[i];
+}
+
+class Solution {
+    public int[] solution(int[] A, int K) {
+        // input Array => A, test case coding
+        int length = A.length;
+        
+        if(length <= 1) return A;
+        else {
+            int rotationCount = K%length; // real rotation count
+            if(rotationCount == 0) return A;
+            Queue pre = new LinkedList();
+            Queue post = new LinkedList();
+            int gap = length - rotationCount;
+            for(int index=0; index < length; index++) {
+                if(gap == 0) pre.offer(A[index]);
+                else {
+                    gap--;
+                    post.offer(A[index]);
+                }
+            }
+            for(int index=0; index < length; index++) {
+                if(pre.peek() != null) { A[index] = (int)pre.poll(); }
+                else A[index] = (int)post.poll();
+            }
+            return A;
         }
-        for(int i = 0; i < K; i++) {
-            System.out.println(index + ", " + i);
-            resultArray[index++] = A[i];
-        }
-        return resultArray;
     }
 }
