@@ -45,4 +45,11 @@ public class FrogJmp {
        // the frog can oly jump from position X to a position greater than Y
        else return (Y-X)/D + 1;
    }
+   /*
+        if(X > Y || D < 0) return 0;
+        int jumpCount = 0;
+        jumpCount = (int)Math.ceil((double)(Y-X)/D);
+        
+        return jumpCount;
+   */
 }
