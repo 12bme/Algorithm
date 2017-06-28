@@ -19,7 +19,7 @@ public class MyTerm1 {
 class MyTerm3Solution {
     public static final String POSSIBLE_TIME_FORMAT = "NOT POSSIBLE";
     public int solve(int[] A) {
-                // write your code in Java SE 8
+        // write your code in Java SE 8
         // output variable
         int result = -1;
         
