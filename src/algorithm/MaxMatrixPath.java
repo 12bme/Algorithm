@@ -103,8 +103,7 @@ class MaxMatrixPath {
     }
     
     private static int cost(int[][] m, int i, int j, int[][] cache) {
-        if(i==0 && j==0)
-            return cache[0][0];
+        if(i==0 && j==0) return cache[0][0];
         
         if(i==0){
             cache[i][j] = (cache[0][j-1] != 0) ? (cache[0][j-1] + m[0][j])
